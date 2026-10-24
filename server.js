@@ -1,13 +1,9 @@
-const express = require("express");
-const app = express();
+const app = require("./index");
 const port = 3000;
+const hostname = "127.0.0.1";
 
-
-app.get("/", (req, res) => {
- res.send("Hello from Express!");
+const server = app.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}`);
 });
 
-
-app.listen(port, () => {
- console.log(`Server running at http://localhost:${port}`);
-});
+module.exports = server;
